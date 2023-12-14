@@ -123,7 +123,7 @@
             <div>
               <!-- check box to remember it -->
               <input type="checkbox" id="remember" name="remember" value="remember" v-model="isChecked" disabled>
-              <label class="ms-1" for="remember">จำค่าไว้ 14 วัน</label>
+              <label class="ms-1" for="remember">จำค่าไว้ 30 วัน</label>
             </div>
             <div>
               <button @click="saveModal" type="button" class="btn btn-primary" data-bs-dismiss="modal">บันทึก</button>
@@ -231,7 +231,7 @@ export default {
       console.log("save modal");
       // create cookie and limit time 14 day
       const d = new Date();
-      d.setTime(d.getTime() + 14 * 24 * 60 * 60 * 1000); // 14 day
+      d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000); // 14 day
       let expires = "expires=" + d.toUTCString();
       document.cookie = "hcode=" + this.selectedHospital.value + ";" + expires + ";path=/;";
       document.cookie = "hname=" + this.selectedHospital.label + ";" + expires + ";path=/;";
@@ -482,7 +482,16 @@ export default {
           label: '[' + item.hoscode + '] ' + item.hosname,
         }));
         this.waiting = false;
-        if (document.cookie.split(';').find(c => c.includes('hname='))) {
+        // if query string hcode is not empty
+        if (this.$route.query.hcode) {
+          // selected 
+          this.selectedHospital = {
+            value: this.$route.query.hcode,
+            label: this.$route.query.hname,
+          };
+        } 
+        // to
+        else if (document.cookie.split(';').find(c => c.includes('hname='))) {
           // selected 
           this.selectedHospital = {
             value: document.cookie.split(';').find(c => c.includes('hcode=')).split('=')[1],
@@ -547,7 +556,7 @@ export default {
             document.cookie = "position=" + response.data.detail[0].entryposition + ";" + expires + ";path=/";
 
 
-            d.setTime(d.getTime() + 14 * 24 * 60 * 60 * 1000); // 14 days
+            d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000); // 14 days
             expires = "expires=" + d.toUTCString();
             document.cookie = "hcode=" + this.selectedHospital.value + ";" + expires + ";path=/"; // 14 days
             document.cookie = "hospitalName=" + this.selectedHospital.label + ";" + expires + ";path=/"; // 14 days

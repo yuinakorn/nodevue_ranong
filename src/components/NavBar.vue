@@ -68,7 +68,7 @@
           <span class="fw-bold">HN:</span> {{ patient.hn }}
         </div>
         <span v-show="isToggle"></span>
-        <div class="d-block">
+        <div class="d-block" style="display: none;">
           <button :class="addBtnClass()" @click="childMethod">
             <font-awesome-icon icon="fa-solid fa-camera" />
             {{ msgTele }}
@@ -214,6 +214,7 @@ export default {
         try {
           let resObj = JSON.parse(message);
           this.patient = resObj[0];
+
           this.patient_img = resObj[0].image;
         } catch (error) {
           console.log(error);
