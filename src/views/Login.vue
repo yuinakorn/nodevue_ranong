@@ -8,11 +8,7 @@
 }
 </style>
 <template>
-  <div class="watermark">
-    <!-- Watermark content goes here -->
-    xxxx
-    {{ username }} {{ this.cid }}
-  </div>
+
   <section>
     <div class="content d-flex justify-content-center align-items-center" style="height: 100vh">
       <div class="container">
@@ -708,19 +704,4 @@ section {
 }
 
 
-.watermark {
-  position: fixed;
-  top: 50%;
-  /* Adjust as needed */
-  left: 50%;
-  /* Adjust as needed */
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  /* Ensure it's on top of other elements */
-  font-size: 24px;
-  /* Adjust font size */
-  opacity: 0.5;
-  /* Adjust opacity as needed */
-  /* Additional styles */
-  /* ... */
-}</style>
+</style>

@@ -1,19 +1,18 @@
 <template>
   <body>
-  <NavBar
-      :visits="visits"
-      @customEvent="parentMethod"
-  />
-  <div class="container-fluid pt-3" style="position: relative">
-    <div class="row">
-      <IsLoading v-if="loading"/>
-      <SideBar :visits="visits"/>
-      <Main
-          :visits="visits"
-          :toggles="toggle"
-      />
+    <div class="watermark">
+      <!-- Watermark content goes here -->
+      xxxx
+      {{ username }} {{ cid }}
     </div>
-  </div>
+    <NavBar :visits="visits" @customEvent="parentMethod" />
+    <div class="container-fluid pt-3" style="position: relative">
+      <div class="row">
+        <IsLoading v-if="loading" />
+        <SideBar :visits="visits" />
+        <Main :visits="visits" :toggles="toggle" />
+      </div>
+    </div>
   </body>
 </template>
 
@@ -57,12 +56,16 @@ export default {
       loading: false,
       overlay: false,
       toggle: false,
+      username: '',
+      cid: ''
     }
   },
   beforeCreate() {
     // check cookie if not redirect to login
     if (document.cookie.indexOf('username') > -1) {
       console.log("cookie => " + document.cookie);
+      this.username = document.cookie.split(';').find(c => c.includes('username=')).split('=')[1];
+      this.cid = document.cookie.split(';').find(c => c.includes('cid=')).split('=')[1];
     } else {
       this.$router.push("/login");
     }
@@ -113,6 +116,16 @@ export default {
 <style scoped>
 body {
   position: relative;
+}
+
+.watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  font-size: 24px;
+  opacity: 0.5;
 }
 
 </style>
