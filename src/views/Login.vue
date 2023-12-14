@@ -10,6 +10,7 @@
 <template>
   <div class="watermark">
     <!-- Watermark content goes here -->
+    xxxx
     {{ username }} {{ this.cid }}
   </div>
   <section>
