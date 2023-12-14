@@ -484,6 +484,7 @@ export default {
         this.waiting = false;
         // if query string hcode is not empty
         if (this.$route.query.hcode) {
+          alert(this.$route.query.hcode)
           // selected 
           this.selectedHospital = {
             value: this.$route.query.hcode,
