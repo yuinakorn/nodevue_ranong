@@ -488,7 +488,7 @@ export default {
           // selected 
           this.selectedHospital = {
             value: this.$route.query.hcode,
-            label: this.$route.query.hname,
+            label: this.$route.query.hname, 
           };
         } 
         // to
