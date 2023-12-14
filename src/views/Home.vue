@@ -3,7 +3,7 @@
     <div class="watermark">
       <!-- Watermark content goes here -->
       xxxx
-      {{ username }} {{ cid }}
+      {{ this.username }} {{ this.cid }}
     </div>
     <NavBar :visits="visits" @customEvent="parentMethod" />
     <div class="container-fluid pt-3" style="position: relative">
