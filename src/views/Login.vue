@@ -8,6 +8,10 @@
 }
 </style>
 <template>
+  <div class="watermark">
+    <!-- Watermark content goes here -->
+    {{ username }} {{ this.cid }}
+  </div>
   <section>
     <div class="content d-flex justify-content-center align-items-center" style="height: 100vh">
       <div class="container">
@@ -414,7 +418,7 @@ export default {
       } else {
         this.showRedAlert();
       }
-      
+
     },
     showToastAlert(time, icon, title) {
       const Toast = Swal.mixin({
@@ -483,14 +487,13 @@ export default {
         }));
         this.waiting = false;
         // if query string hcode is not empty
-        if (this.$route.query.hcode) {
-          alert(this.$route.query.hcode)
+        if (this.$route.query.hcode && this.$route.query.hname) {
           // selected 
           this.selectedHospital = {
             value: this.$route.query.hcode,
-            label: this.$route.query.hname, 
+            label: this.$route.query.hname,
           };
-        } 
+        }
         // to
         else if (document.cookie.split(';').find(c => c.includes('hname='))) {
           // selected 
@@ -540,7 +543,7 @@ export default {
       };
 
       console.log(cnf);
-      
+
 
       await axios.request(cnf)
         .then((response) => {
@@ -702,4 +705,21 @@ section {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-</style>
+
+
+.watermark {
+  position: fixed;
+  top: 50%;
+  /* Adjust as needed */
+  left: 50%;
+  /* Adjust as needed */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  /* Ensure it's on top of other elements */
+  font-size: 24px;
+  /* Adjust font size */
+  opacity: 0.5;
+  /* Adjust opacity as needed */
+  /* Additional styles */
+  /* ... */
+}</style>

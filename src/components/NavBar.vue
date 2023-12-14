@@ -373,7 +373,8 @@ header {
   border-radius: 5px;
   max-width: 100%;
   padding-left: 1rem;
-  border: 1px solid #e6b3b3;
+  /* border: 1px solid #e6b3b3; */
+  
   /*margin-right: 1rem;*/
   /*width: 49rem;*/
 }
