@@ -122,10 +122,15 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 999;
   font-size: 24px;
   opacity: 0.5;
+  /* Set to cover the entire screen */
+  width: 100vw;
+  height: 100vh;
+  /* To ensure it doesn't block user interactions */
+  pointer-events: none;
 }
 
 </style>
