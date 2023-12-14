@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><font-awesome-icon icon="laptop-medical" /> ประวัติการรักษา</a>
       <div class="pdpa-noti marquee"><font-awesome-icon icon="exclamation-triangle" class="m-r-1 text-red" />
-        <span class="text-red fw-bold me-1">warning!</span>
+        <span class="text-red fw-bold me-1">คำเตือน!</span>
         <span>การเผยแพร่ ส่งต่อ หรือเข้าถึงข้อมูลผู้ป่วยโดยไม่มีสิทธิ เป็นความผิดตาม พรบ.คุ้มครองข้อมูลส่วนบุคคล</span>
         <span> / เหลือเวลาดูอีก {{ countdown }}</span>
       </div>
@@ -374,7 +374,7 @@ header {
   max-width: 100%;
   padding-left: 1rem;
   /* border: 1px solid #e6b3b3; */
-  
+
   /*margin-right: 1rem;*/
   /*width: 49rem;*/
 }

@@ -2,8 +2,7 @@
   <body>
     <div class="watermark">
       <!-- Watermark content goes here -->
-      xxxx
-      {{ this.username }} {{ this.hospitalName }}
+      {{ this.username }} @ {{ this.hospitalName }}
     </div>
     <NavBar :visits="visits" @customEvent="parentMethod" />
     <div class="container-fluid pt-3" style="position: relative">
@@ -125,14 +124,10 @@ body {
 .watermark {
   position: fixed;
   top: 50%;
-  /* Adjust as needed */
   left: 50%;
-  /* Adjust as needed */
   transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 999;
-  /* Ensure it's on top of other elements */
-  font-size: 24px;
-  /* Adjust font size */
-  opacity: 0.5;
-  /* Adjust opacity as needed */
+  font-size: 1.2rem;
+  opacity: 0.3;
+
 }</style>
