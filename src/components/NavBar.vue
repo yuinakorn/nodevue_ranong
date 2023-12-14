@@ -61,8 +61,11 @@
 
       </div>
       <div class="col ps-4">
-        <div class="d-block" id="telemed"><span class="fw-bold">เลขบัตรประชาชน:</span> {{ patient.cid }}
-
+        <div class="d-block" id="telemed">
+          <span class="fw-bold">เลขบัตรประชาชน:</span> {{ patient.cid }}
+        </div>
+        <div class="d-block" id="telemed">
+          <span class="fw-bold">HN:</span> {{ patient.hn }}
         </div>
         <span v-show="isToggle"></span>
         <div class="d-block">
