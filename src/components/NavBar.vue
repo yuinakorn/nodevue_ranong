@@ -68,7 +68,8 @@
           <span class="fw-bold">HN:</span> {{ patient.hn }}
         </div>
         <span v-show="isToggle"></span>
-        <div class="d-block" style="display: none;">
+        <!-- display none -->
+        <div class="d-none"> 
           <button :class="addBtnClass()" @click="childMethod">
             <font-awesome-icon icon="fa-solid fa-camera" />
             {{ msgTele }}
