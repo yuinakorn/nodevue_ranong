@@ -3,7 +3,7 @@
     <div class="watermark">
       <!-- Watermark content goes here -->
       xxxx
-      {{ this.username }} {{ this.cid }}
+      {{ this.username }} {{ this.hospitalName }}
     </div>
     <NavBar :visits="visits" @customEvent="parentMethod" />
     <div class="container-fluid pt-3" style="position: relative">
@@ -57,15 +57,13 @@ export default {
       overlay: false,
       toggle: false,
       username: '',
-      cid: ''
+      hospitalName: ''
     }
   },
   beforeCreate() {
     // check cookie if not redirect to login
     if (document.cookie.indexOf('username') > -1) {
       console.log("cookie => " + document.cookie);
-      this.username = document.cookie.split(';').find(c => c.includes('username=')).split('=')[1];
-      this.cid = document.cookie.split(';').find(c => c.includes('cid=')).split('=')[1];
     } else {
       this.$router.push("/login");
     }
@@ -77,6 +75,12 @@ export default {
     }
   },
   async mounted() {
+
+    // watermark
+    this.username = document.cookie.split(';').find(c => c.includes('username=')).split('=')[1];
+    this.hospitalName = document.cookie.split(';').find(c => c.includes('hospitalName=')).split('=')[1];
+
+
     this.loading = true;
     const socket = io(process.env.VUE_APP_APIURL);
     await socket.on("connect", () => {
@@ -121,16 +125,14 @@ body {
 .watermark {
   position: fixed;
   top: 50%;
+  /* Adjust as needed */
   left: 50%;
+  /* Adjust as needed */
   transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 999;
+  /* Ensure it's on top of other elements */
   font-size: 24px;
+  /* Adjust font size */
   opacity: 0.5;
-  /* Set to cover the entire screen */
-  width: 100vw;
-  height: 100vh;
-  /* To ensure it doesn't block user interactions */
-  pointer-events: none;
-}
-
-</style>
+  /* Adjust opacity as needed */
+}</style>
