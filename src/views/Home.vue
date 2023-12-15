@@ -127,7 +127,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
   z-index: 999;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   opacity: 0.2;
 
 }</style>
